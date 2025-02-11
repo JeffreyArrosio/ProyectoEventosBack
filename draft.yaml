@@ -1,0 +1,37 @@
+models:
+  Association:
+    name: string
+    description: text
+    max_member: integer nullable
+    user_id: id
+    access_type: enum:all,anticipated,exclusive
+    relationships:
+      belongsToMany: Event,User
+      hasMany: Comment
+
+  Event:
+    date_start: datetime
+    date_end: datetime
+    title: string
+    description: text
+    type_id: id
+    relationships:
+      hasMany: Comment
+      belongsToMany: Association
+
+  Comment:
+    score: enum:1,2,3,4,5 nullable
+    text: text nullable
+    user_id: id
+    commentable: morphs
+
+  Type:
+    description: text nullable
+    type: string
+    typeable: morphs
+
+  Image:
+    url: string
+    imageable: morphs
+
+seeders: Association, Comment, Type, Event

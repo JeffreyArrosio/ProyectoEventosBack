@@ -1,0 +1,29 @@
+created:
+    - database/factories/AssociationFactory.php
+    - database/factories/EventFactory.php
+    - database/factories/CommentFactory.php
+    - database/factories/TypeFactory.php
+    - database/factories/ImageFactory.php
+    - database/migrations/2025_02_11_205720_create_associations_table.php
+    - database/migrations/2025_02_11_205721_create_events_table.php
+    - database/migrations/2025_02_11_205722_create_comments_table.php
+    - database/migrations/2025_02_11_205723_create_types_table.php
+    - database/migrations/2025_02_11_205724_create_images_table.php
+    - database/migrations/2025_02_11_205725_create_association_event_table.php
+    - database/migrations/2025_02_11_205726_create_association_user_table.php
+    - app/Models/Association.php
+    - app/Models/Event.php
+    - app/Models/Comment.php
+    - app/Models/Type.php
+    - app/Models/Image.php
+    - database/seeders/AssociationSeeder.php
+    - database/seeders/CommentSeeder.php
+    - database/seeders/TypeSeeder.php
+    - database/seeders/EventSeeder.php
+models:
+    User: { name: string, email: string, email_verified_at: 'timestamp nullable default:NULL', password: string, remember_token: 'string:100 nullable default:NULL' }
+    Association: { name: string, description: text, max_member: 'integer nullable', user_id: id, access_type: 'enum:all,anticipated,exclusive', relationships: { belongsToMany: 'Event,User', hasMany: Comment } }
+    Event: { date_start: datetime, date_end: datetime, title: string, description: text, type_id: id, relationships: { hasMany: Comment, belongsToMany: Association } }
+    Comment: { score: 'enum:1,2,3,4,5 nullable', text: 'text nullable', user_id: id, commentable: morphs }
+    Type: { description: 'text nullable', type: string, typeable: morphs }
+    Image: { url: string, imageable: morphs }
