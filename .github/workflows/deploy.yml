@@ -1,0 +1,18 @@
+name: deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy to VPS
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Deploy
+        uses: appleboy/ssh-action@v0.1.8
+        with:
+          host: 200.234.225.32
+          port: 22
+          username: jeff
+          key: ${{ secrets.PRIVATE_KEY }}
+          script: "cd /var/www/html/ProyectoEventoBack; git pull origin master; npm run build"
