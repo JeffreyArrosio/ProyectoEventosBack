@@ -4,11 +4,12 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+    dd( opcache_get_status());
     return view('welcome');
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    phpversion();
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
