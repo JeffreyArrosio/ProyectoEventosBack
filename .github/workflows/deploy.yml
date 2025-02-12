@@ -15,4 +15,4 @@ jobs:
           port: 2222
           username: jeff
           key: ${{ secrets.PRIVATE_KEY }}
-          script: "cd /var/www/html/ProyectoEventoBack; git pull origin master; npm run build"
+          script: "cd /var/www/html/ProyectoEventosBack; git pull origin master; npm run build"
