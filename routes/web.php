@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    dd(phpversion(),"peruano");
+    return view('welcome');
 });
 
 Route::get('/dashboard', function () {
