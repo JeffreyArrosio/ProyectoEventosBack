@@ -16,7 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->integer('max_member')->nullable();
+            $table->integer('telephone');
+            $table->string('email');
             $table->foreignId('user_id');
+            $table->foreignId('type_id');
             $table->enum('access_type', ["all","anticipated","exclusive"]);
             $table->timestamps();
         });

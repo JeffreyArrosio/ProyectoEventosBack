@@ -21,7 +21,10 @@ class Association extends Model
         'name',
         'description',
         'max_member',
+        'telephone',
+        'email',
         'user_id',
+        'type_id',
         'access_type',
     ];
 
@@ -33,6 +36,7 @@ class Association extends Model
     protected $casts = [
         'id' => 'integer',
         'user_id' => 'integer',
+        'type_id' => 'integer',
     ];
 
     public function events(): BelongsToMany
@@ -53,5 +57,10 @@ class Association extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function type(): BelongsTo
+    {
+        return $this->belongsTo(Type::class);
     }
 }
