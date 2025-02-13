@@ -3,7 +3,10 @@ models:
     name: string
     description: text
     max_member: integer nullable
+    telephone: integer
+    email: string
     user_id: id
+    type_id: id
     access_type: enum:all,anticipated,exclusive
     relationships:
       belongsToMany: Event,User
