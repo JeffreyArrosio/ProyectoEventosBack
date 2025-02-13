@@ -17,4 +17,4 @@ jobs:
           port: 2222
           username: jeff
           key: ${{ secrets.PRIVATE_KEY }}
-          script: "cd /var/www/html/ProyectoEventosBack; git pull origin master; php artisan optimize; sudo service php8.3-fpm reload; ./chown.sh; npm run build"
+          script: "cd /var/www/html/ProyectoEventosBack; git pull origin master; php artisan optimize; sudo service php8.3-fpm reload; sudo ./chown.sh; npm run build"
