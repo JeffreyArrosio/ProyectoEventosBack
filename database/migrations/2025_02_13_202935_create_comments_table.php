@@ -11,16 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('associations', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('description');
-            $table->integer('max_member')->nullable();
-            $table->integer('telephone');
-            $table->string('email');
+            $table->enum('score', ["1","2","3","4","5"])->nullable();
+            $table->text('text')->nullable();
             $table->foreignId('user_id');
-            $table->foreignId('type_id');
-            $table->enum('access_type', ["all","anticipated","exclusive"]);
+            $table->morphs('commentable');
             $table->timestamps();
         });
     }
@@ -30,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('associations');
+        Schema::dropIfExists('comments');
     }
 };
