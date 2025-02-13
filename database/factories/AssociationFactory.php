@@ -5,6 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 use App\Models\Association;
+use App\Models\Type;
 use App\Models\User;
 
 class AssociationFactory extends Factory
@@ -24,8 +25,11 @@ class AssociationFactory extends Factory
         return [
             'name' => fake()->name(),
             'description' => fake()->text(),
-            'max_member' => fake()->numberBetween(-10000, 10000),
+            'max_member' => fake()->numberBetween(0, 10000),
+            'telephone' => fake()->numberBetween(600000000, 999999999),
+            'email' => fake()->safeEmail(),
             'user_id' => User::factory(),
+            'type_id' => Type::factory(),
             'access_type' => fake()->randomElement(["all","anticipated","exclusive"]),
         ];
     }
