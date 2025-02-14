@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\api\AssociationController;
+use App\Http\Controllers\api\CommentController;
+use App\Http\Controllers\api\EventController;
+use App\Http\Controllers\api\ImageController;
+use App\Http\Controllers\api\TypeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Orion\Facades\Orion;
@@ -10,4 +14,9 @@ Route::get('/user', function (Request $request) {
 
 Route::group(['as' => 'api'], function() {
     Orion::resource('associations', AssociationController::class);
+    Orion::resource('comments', CommentController::class);
+    Orion::resource('events', EventController::class);
+    Orion::resource('images', ImageController::class);
+    Orion::resource('types', TypeController::class);
+
 })->middleware('sanctum');
