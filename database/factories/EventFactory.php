@@ -27,7 +27,7 @@ class EventFactory extends Factory
             'title' => fake()->sentence(4),
             'description' => fake()->text(),
             'access_type' => fake()->randomElement(["all","anticipated","exclusive"]),
-            'type_id' => Type::inRandomOrder()->first()->id ?? Type::factory(), ,
+            'type_id' => Type::inRandomOrder()->first()->id ?? Type::factory(), 
         ];
     }
 }
