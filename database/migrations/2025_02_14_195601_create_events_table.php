@@ -17,6 +17,7 @@ return new class extends Migration
             $table->dateTime('date_end');
             $table->string('title');
             $table->text('description');
+            $table->enum('access_type', ["all","anticipated","exclusive"]);
             $table->foreignId('type_id');
             $table->timestamps();
         });

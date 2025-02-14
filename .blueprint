@@ -4,13 +4,13 @@ created:
     - database/factories/CommentFactory.php
     - database/factories/TypeFactory.php
     - database/factories/ImageFactory.php
-    - database/migrations/2025_02_13_202933_create_associations_table.php
-    - database/migrations/2025_02_13_202934_create_events_table.php
-    - database/migrations/2025_02_13_202935_create_comments_table.php
-    - database/migrations/2025_02_13_202936_create_types_table.php
-    - database/migrations/2025_02_13_202937_create_images_table.php
-    - database/migrations/2025_02_13_202938_create_association_event_table.php
-    - database/migrations/2025_02_13_202939_create_association_user_table.php
+    - database/migrations/2025_02_14_195600_create_associations_table.php
+    - database/migrations/2025_02_14_195601_create_events_table.php
+    - database/migrations/2025_02_14_195602_create_comments_table.php
+    - database/migrations/2025_02_14_195603_create_types_table.php
+    - database/migrations/2025_02_14_195604_create_images_table.php
+    - database/migrations/2025_02_14_195605_create_association_event_table.php
+    - database/migrations/2025_02_14_195606_create_association_user_table.php
     - app/Models/Association.php
     - app/Models/Event.php
     - app/Models/Comment.php
@@ -22,8 +22,8 @@ created:
     - database/seeders/EventSeeder.php
 models:
     User: { name: string, email: string, email_verified_at: 'timestamp nullable default:NULL', password: string, remember_token: 'string:100 nullable default:NULL' }
-    Association: { name: string, description: text, max_member: 'integer nullable', telephone: integer, email: string, user_id: id, type_id: id, access_type: 'enum:all,anticipated,exclusive', relationships: { belongsToMany: 'Event,User', hasMany: Comment } }
-    Event: { date_start: datetime, date_end: datetime, title: string, description: text, type_id: id, relationships: { hasMany: Comment, belongsToMany: Association } }
+    Association: { name: string, description: text, max_member: 'integer nullable', telephone: integer, email: string, user_id: id, type_id: id, relationships: { belongsToMany: 'Event,User', hasMany: Comment } }
+    Event: { date_start: datetime, date_end: datetime, title: string, description: text, access_type: 'enum:all,anticipated,exclusive', type_id: id, relationships: { hasMany: Comment, belongsToMany: Association } }
     Comment: { score: 'enum:1,2,3,4,5 nullable', text: 'text nullable', user_id: id, commentable: morphs }
     Type: { description: 'text nullable', type: string, typeable: morphs }
     Image: { url: string, imageable: morphs }
