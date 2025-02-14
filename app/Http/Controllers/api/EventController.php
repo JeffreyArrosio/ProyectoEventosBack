@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api;
 
+use App\Http\Requests\EventRequest;
 use App\Models\Event;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Foundation\Auth\Access\Authorizable;
@@ -15,4 +16,6 @@ class EventController extends Controller
     use HasApiTokens, DisableAuthorization;
 
     protected $model = Event::class;
+
+    protected $request = EventRequest::class;
 }
