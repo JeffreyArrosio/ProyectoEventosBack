@@ -24,7 +24,7 @@ class CommentFactory extends Factory
         return [
             'score' => fake()->randomElement(["1","2","3","4","5"]),
             'text' => fake()->text(),
-            'user_id' => User::factory(),
+            'user_id' => User::inRandomOrder()->first()->id ?? User::factory(), ,
             'commentable_id' => fake()->randomDigitNotNull(),
             'commentable_type' => fake()->word(),
         ];

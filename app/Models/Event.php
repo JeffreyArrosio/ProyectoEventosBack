@@ -22,6 +22,7 @@ class Event extends Model
         'date_end',
         'title',
         'description',
+        'access_type',
         'type_id',
     ];
 

@@ -25,12 +25,11 @@ class AssociationFactory extends Factory
         return [
             'name' => fake()->name(),
             'description' => fake()->text(),
-            'max_member' => fake()->numberBetween(0, 10000),
-            'telephone' => fake()->numberBetween(600000000, 999999999),
+            'max_member' => fake()->numberBetween(-10000, 10000),
+            'telephone' => fake()->numberBetween(-10000, 10000),
             'email' => fake()->safeEmail(),
-            'user_id' => User::factory(),
-            'type_id' => Type::factory(),
-            'access_type' => fake()->randomElement(["all","anticipated","exclusive"]),
+            'user_id' => User::inRandomOrder()->first()->id ?? User::factory(),
+            'type_id' => Type::inRandomOrder()->first()->id ?? Type::factory(), ,
         ];
     }
 }
