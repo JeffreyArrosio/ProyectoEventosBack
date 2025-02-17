@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['*'],
+    'allowed_origins' => ['http://localhost:5174', 'https://proyecto-eventos-front.vercel.app'],
 
     'allowed_origins_patterns' => [],
 
