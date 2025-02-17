@@ -12,8 +12,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware('auth')->name('dashboard');
 
-Route::get('/auth/check', function(){
-    return response()->json(['authentificated' => Auth::check()]);
+Route::get('/auth/check', function () {
+    return response()->json([
+        'authentificated' => Auth::check(),
+        'user' => Auth::user(),
+    ]);
 });
 
 Route::middleware('auth')->group(function () {
@@ -22,4 +25,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
