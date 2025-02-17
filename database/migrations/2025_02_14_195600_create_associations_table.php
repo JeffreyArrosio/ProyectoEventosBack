@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('email');
             $table->foreignId('user_id');
             $table->foreignId('type_id');
+            $table->enum('access_type', ["all","anticipated","exclusive"]);
             $table->timestamps();
         });
     }
