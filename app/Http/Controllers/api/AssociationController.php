@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api;
 
+use App\Http\Requests\AssociationRequest;
 use App\Models\Association;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Foundation\Auth\Access\Authorizable;
@@ -15,4 +16,6 @@ class AssociationController extends Controller
 {
     use HasApiTokens, DisableAuthorization;
     protected $model = Association::class;
+
+    protected $request = AssociationRequest::class;
 }

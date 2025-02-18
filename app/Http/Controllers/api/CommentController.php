@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api;
 
+use App\Http\Requests\CommentRequest;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Foundation\Auth\Access\Authorizable;
@@ -16,4 +17,6 @@ class CommentController extends Controller
     use HasApiTokens, DisableAuthorization;
 
     protected $model = Comment::class;
+
+    protected $request = CommentRequest::class;
 }
