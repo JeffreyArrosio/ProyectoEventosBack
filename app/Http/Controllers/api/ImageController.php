@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api;
 
+use App\Http\Requests\ImageRequest;
 use App\Models\Image;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Foundation\Auth\Access\Authorizable;
@@ -16,4 +17,6 @@ class ImageController extends Controller
     use HasApiTokens, DisableAuthorization;
 
     protected $model = Image::class;
+
+    protected $request = ImageRequest::class;
 }
