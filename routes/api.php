@@ -5,6 +5,7 @@ use App\Http\Controllers\api\CommentController;
 use App\Http\Controllers\api\EventController;
 use App\Http\Controllers\api\ImageController;
 use App\Http\Controllers\api\TypeController;
+use App\Http\Controllers\EventUsersController;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Route;
@@ -28,4 +29,7 @@ Route::group(['as' => 'api'], function() {
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::post('/events/users', [EventUsersController::class, 'store']);
 
