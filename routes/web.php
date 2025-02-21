@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -8,9 +9,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return redirect('https://proyecto-eventos-front.vercel.app/');
-})->middleware('auth')->name('dashboard');
+Route::get('/dashboard', function (Request $request) {
+    $data = $request->query('data');
+    //dd($data);
+    return redirect('http://localhost:5175?data='.$data);
+})->middleware('auth');
+
+
+Route::get('/logout-user', function() {
+    return view('logout');
+})->middleware('auth');
 
 // Route::get('/auth/check', function () {
 //     return response()->json([
