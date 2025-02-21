@@ -43,7 +43,7 @@ class AuthenticatedSessionController extends Controller
         // 🔥 Genera un token de acceso
         $token = $user->createToken('auth_token')->plainTextToken;
     
-        return redirect('https://proyecto-eventos-front.vercel.app/')->response()->json([
+        return response()->json([
             'user' => $user,
             'token' => $token
         ], 200);
