@@ -9,7 +9,7 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return redirect('https://proyecto-eventos-front.vercel.app/');
 })->middleware('auth')->name('dashboard');
 
 // Route::get('/auth/check', function () {
