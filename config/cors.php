@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => [env('APP_FRONTEND'), 'https://proyecto-eventos-front.vercel.app'],
+    'allowed_origins' => [env('APP_FRONTEND'), 'localhost:5173', 'localhost:5174', 'localhost:5175'],
 
     'allowed_origins_patterns' => [],
 
