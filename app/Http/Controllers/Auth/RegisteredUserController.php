@@ -45,6 +45,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('http://localhost:5175/', absolute: false));
+        return redirect(route('https://proyecto-eventos-front.vercel.app/', absolute: false));
     }
 }

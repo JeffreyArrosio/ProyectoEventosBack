@@ -5,16 +5,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::middleware('auth:sanctum')->get('/auth/user', function (Request $request) {
     return response()->json($request->user());
 });
 
 Route::get('/dashboard', function (Request $request) {
-    return redirect('http://localhost:5175');
+    return redirect('https://proyecto-eventos-front.vercel.app/');
 })->middleware('auth');
 
 
