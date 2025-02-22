@@ -1,16 +1,22 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::middleware('auth:sanctum')->get('/auth/user', function (Request $request) {
+    return response()->json($request->user());
 });
 
-Route::get('/dashboard', function () {
+Route::get('/dashboard', function (Request $request) {
     return redirect('https://proyecto-eventos-front.vercel.app/');
-})->middleware('auth')->name('dashboard');
+})->middleware('auth');
+
+
+Route::get('/logout-user', function () {
+    return view('logout');
+})->middleware('auth');
 
 // Route::get('/auth/check', function () {
 //     return response()->json([
