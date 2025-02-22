@@ -42,11 +42,8 @@ class AuthenticatedSessionController extends Controller
         
         // 🔥 Genera un token de acceso
         $token = $user->createToken('auth_token')->plainTextToken;
-
-        $encryptedData = encrypt(json_encode(['token' => $token, 'user' => $user]));
-
-        
-        return redirect('/dashboard?data='.$encryptedData);
+                
+        return redirect('/dashboard');
 
 
     }

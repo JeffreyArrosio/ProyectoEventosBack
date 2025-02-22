@@ -9,14 +9,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::middleware('auth:sanctum')->get('/auth/user', function (Request $request) {
+    return response()->json($request->user());
+});
+
 Route::get('/dashboard', function (Request $request) {
-    $data = $request->query('data');
-    //dd($data);
-    return redirect('http://localhost:5175?data='.$data);
+    return redirect('http://localhost:5175');
 })->middleware('auth');
 
 
-Route::get('/logout-user', function() {
+Route::get('/logout-user', function () {
     return view('logout');
 })->middleware('auth');
 
