@@ -14,7 +14,7 @@ use Orion\Concerns\DisablePagination;
 
 class AssociationController extends Controller
 {
-    use HasApiTokens, DisableAuthorization;
+    use HasApiTokens;
     protected $model = Association::class;
 
     protected $request = AssociationRequest::class;
