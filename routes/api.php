@@ -21,7 +21,7 @@ use Orion\Facades\Orion;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
-})->middleware('auth:sanctum');
+})->middleware('sanctum');
 
 Route::group(['as' => 'api'], function() {
     Orion::resource('associations', AssociationController::class);
