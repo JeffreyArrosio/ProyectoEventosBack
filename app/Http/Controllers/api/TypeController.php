@@ -13,7 +13,7 @@ use Orion\Concerns\DisablePagination;
 
 class TypeController extends Controller
 {
-    use HasApiTokens, DisableAuthorization;
+    use DisableAuthorization;
 
     protected $model = Type::class;
 }
