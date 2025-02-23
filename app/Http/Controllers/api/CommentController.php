@@ -14,7 +14,7 @@ use App\Models\Comment;
 
 class CommentController extends Controller
 {
-    use HasApiTokens, DisableAuthorization;
+    use DisableAuthorization;
 
     protected $model = Comment::class;
 

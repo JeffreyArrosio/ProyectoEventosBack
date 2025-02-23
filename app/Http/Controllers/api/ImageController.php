@@ -14,7 +14,7 @@ use Orion\Concerns\DisablePagination;
 
 class ImageController extends Controller
 {
-    use HasApiTokens, DisableAuthorization;
+    use DisableAuthorization;
 
     protected $model = Image::class;
 
