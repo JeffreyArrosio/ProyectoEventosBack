@@ -41,7 +41,7 @@ class AuthenticatedSessionController extends Controller
         $user = Auth::user();
         
         // 🔥 Genera un token de acceso
-        $token = $user->createToken('auth_token')->plainTextToken;
+        //$token = $user->createToken('auth_token')->plainTextToken;
                 
         return redirect('/dashboard');
 
