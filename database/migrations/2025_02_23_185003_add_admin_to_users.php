@@ -11,11 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('event_users', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->cascadeOnDelete();
-            $table->foreignId('event_id')->cascadeOnDelete();
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->boolean('admin')->default(false);
         });
     }
 
@@ -24,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('event_users');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('admin');
+        });
     }
 };

@@ -29,7 +29,8 @@ class AssociationFactory extends Factory
             'telephone' => fake()->numberBetween(600000000, 999999999),
             'email' => fake()->safeEmail(),
             'user_id' => User::inRandomOrder()->first()->id ?? User::factory(),
-            'type_id' => Type::inRandomOrder()->first()->id ?? Type::factory(), 
+            'type_id' => Type::inRandomOrder()->first()->id ?? Type::factory(),
+            'main_image' => "https://picsum.photos/id/".$this->faker->randomNumber(3)."/300/300"
         ];
     }
 }

@@ -4,13 +4,14 @@ created:
     - database/factories/CommentFactory.php
     - database/factories/TypeFactory.php
     - database/factories/ImageFactory.php
-    - database/migrations/2025_02_14_195600_create_associations_table.php
-    - database/migrations/2025_02_14_195601_create_events_table.php
-    - database/migrations/2025_02_14_195602_create_comments_table.php
-    - database/migrations/2025_02_14_195603_create_types_table.php
-    - database/migrations/2025_02_14_195604_create_images_table.php
-    - database/migrations/2025_02_14_195605_create_association_event_table.php
-    - database/migrations/2025_02_14_195606_create_association_user_table.php
+    - database/migrations/2025_02_23_184256_create_associations_table.php
+    - database/migrations/2025_02_23_184257_create_events_table.php
+    - database/migrations/2025_02_23_184258_create_comments_table.php
+    - database/migrations/2025_02_23_184259_create_types_table.php
+    - database/migrations/2025_02_23_184300_create_images_table.php
+    - database/migrations/2025_02_23_184301_create_association_event_table.php
+    - database/migrations/2025_02_23_184302_create_association_user_table.php
+    - database/migrations/2025_02_23_184303_create_event_user_table.php
     - app/Models/Association.php
     - app/Models/Event.php
     - app/Models/Comment.php
@@ -21,9 +22,10 @@ created:
     - database/seeders/TypeSeeder.php
     - database/seeders/EventSeeder.php
 models:
-    User: { name: string, email: string, email_verified_at: 'timestamp nullable default:NULL', password: string, remember_token: 'string:100 nullable default:NULL' }
-    Association: { name: string, description: text, max_member: 'integer nullable', telephone: integer, email: string, user_id: id, type_id: id, relationships: { belongsToMany: 'Event,User', hasMany: Comment } }
-    Event: { date_start: datetime, date_end: datetime, title: string, description: text, access_type: 'enum:all,anticipated,exclusive', type_id: id, relationships: { hasMany: Comment, belongsToMany: Association } }
+    EventUser: { user_id: 'biginteger unsigned', event_id: 'biginteger unsigned' }
+    User: { name: string, email: string, email_verified_at: 'timestamp nullable', password: string, remember_token: 'string:100 nullable' }
+    Association: { name: string, description: text, max_member: 'integer nullable', telephone: 'integer unique', email: 'string unique', user_id: id, type_id: id, main_image: string, relationships: { belongsToMany: 'Event,User', hasMany: Comment } }
+    Event: { date_start: datetime, date_end: datetime, title: string, description: text, main_image: string, access_type: 'enum:all,anticipated,exclusive', type_id: id, relationships: { hasMany: Comment, belongsToMany: 'Association,User' } }
     Comment: { score: 'enum:1,2,3,4,5 nullable', text: 'text nullable', user_id: id, commentable: morphs }
-    Type: { description: 'text nullable', type: string, typeable: morphs }
+    Type: { description: 'text nullable', type: 'string unique', typeable: morphs }
     Image: { url: string, imageable: morphs }

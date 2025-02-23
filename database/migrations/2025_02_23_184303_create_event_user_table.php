@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('types', function (Blueprint $table) {
-            $table->id();
-            $table->text('description')->nullable();
-            $table->string('type');
-            $table->morphs('typeable');
-            $table->timestamps();
+        Schema::create('event_user', function (Blueprint $table) {
+            $table->foreignId('event_id');
+            $table->foreignId('user_id');
         });
     }
 
@@ -25,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('types');
+        Schema::dropIfExists('event_user');
     }
 };

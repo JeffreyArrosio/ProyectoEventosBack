@@ -12,7 +12,6 @@ class TypeSeeder extends Seeder
      */
     public function run(): void
     {
-        Type::truncate();
         Type::factory()->count(5)->create();
     }
 }
