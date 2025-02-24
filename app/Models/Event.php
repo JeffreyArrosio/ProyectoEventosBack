@@ -23,6 +23,7 @@ class Event extends Model
         'title',
         'description',
         'access_type',
+        'main_image',
         'type_id',
     ];
 
@@ -48,7 +49,7 @@ class Event extends Model
     }
 
     public function images(){
-        return $this->morphMany(Comment::class,'commentable');
+        return $this->morphMany(Comment::class,'imageable');
     }
 
     public function associations(): BelongsToMany
