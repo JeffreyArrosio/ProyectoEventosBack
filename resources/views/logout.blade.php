@@ -1207,6 +1207,11 @@
             }
         }
     </style>
+    <style>
+        body{
+            background-image: url('/yes.webp');
+        }
+    </style>
     @endif
 </head>
 

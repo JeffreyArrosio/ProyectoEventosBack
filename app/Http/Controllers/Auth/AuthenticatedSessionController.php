@@ -59,6 +59,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('https://proyecto-eventos-front.vercel.app/');
+        return redirect('/dashboard');
     }
 }
