@@ -9,6 +9,10 @@ Route::middleware('auth:sanctum')->get('/auth/user', function (Request $request)
     return response()->json($request->user());
 });
 
+Route::get('/', function() {
+    return redirect('/dashboard');
+});
+
 Route::get('/dashboard', function (Request $request) {
     return redirect('https://proyecto-eventos-front.vercel.app/');
 })->middleware('auth');
