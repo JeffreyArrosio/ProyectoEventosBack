@@ -44,8 +44,6 @@ class AuthenticatedSessionController extends Controller
         //$token = $user->createToken('auth_token')->plainTextToken;
                 
         return redirect('/dashboard');
-
-
     }
 
     /**
