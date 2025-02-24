@@ -23,6 +23,7 @@ class Association extends Model
         'max_member',
         'telephone',
         'email',
+        'main_image',
         'user_id',
         'type_id',
         'main_image',
@@ -49,9 +50,17 @@ class Association extends Model
         return $this->belongsToMany(User::class);
     }
 
-    public function comments(): HasMany
+    public function type(){
+        return $this->morphOne(Type::class,'typeable');
+    }
+    
+    public function comments()
     {
-        return $this->hasMany(Comment::class);
+        return $this->morphMany(Comment::class,'commentable');
+    }
+
+    public function images(){
+        return $this->morphMany(Comment::class,'imageable');
     }
 
     public function user(): BelongsTo
@@ -59,8 +68,4 @@ class Association extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function type(): BelongsTo
-    {
-        return $this->belongsTo(Type::class);
-    }
 }

@@ -28,4 +28,8 @@ class Type extends Model
     protected $casts = [
         'id' => 'integer',
     ];
+
+    public function typeable(){
+        return $this->morphTo();
+    }
 }

@@ -10,7 +10,6 @@ models:
     main_image: string
     relationships:
       belongsToMany: Event,User
-      hasMany: Comment
 
   Event:
     date_start: datetime
@@ -21,8 +20,8 @@ models:
     access_type: enum:all,anticipated,exclusive
     type_id: id
     relationships:
-      hasMany: Comment
       belongsToMany: Association,User
+
 
   Comment:
     score: enum:1,2,3,4,5 nullable

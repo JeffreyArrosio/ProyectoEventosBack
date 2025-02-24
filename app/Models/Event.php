@@ -24,6 +24,7 @@ class Event extends Model
         'description',
         'main_image',
         'access_type',
+        'main_image',
         'type_id',
     ];
 
@@ -39,23 +40,27 @@ class Event extends Model
         'type_id' => 'integer',
     ];
 
-    public function comments(): HasMany
+    public function comments()
     {
-        return $this->hasMany(Comment::class);
+        return $this->morphMany(Comment::class,'commentable');
+    }
+
+    public function type(){
+        return $this->morphOne(Type::class,'typeable');
+    }
+
+    public function images(){
+        return $this->morphMany(Comment::class,'imageable');
     }
 
     public function associations(): BelongsToMany
     {
         return $this->belongsToMany(Association::class);
     }
-
+  
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class);
     }
 
-    public function type(): BelongsTo
-    {
-        return $this->belongsTo(Type::class);
-    }
 }
