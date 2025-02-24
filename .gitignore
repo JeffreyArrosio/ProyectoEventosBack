@@ -13,6 +13,7 @@
 .env.production
 .phpactor.json
 .phpunit.result.cache
+chown.sh
 Homestead.json
 Homestead.yaml
 npm-debug.log
