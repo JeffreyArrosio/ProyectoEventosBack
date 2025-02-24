@@ -14,7 +14,7 @@ use App\Http\Controllers\api\TypeController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\EventUsersController;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Orion\Facades\Orion;
 
@@ -28,7 +28,8 @@ Route::post('/logout', function () {
     Auth::logout();
     request()->session()->invalidate();
     request()->session()->regenerateToken();
-    return response()->json(['message' => 'Logout exitoso']);)->middleware('sanctum');
+    return response()->json(['message' => 'Logout exitoso']);
+})->middleware('sanctum');
 
 Route::group(['as' => 'api'], function() {
     Orion::resource('associations', AssociationController::class);
