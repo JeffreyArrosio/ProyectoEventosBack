@@ -11,6 +11,7 @@ use App\Http\Controllers\api\RelationshipControllers\AssociationTypeController;
 use App\Http\Controllers\api\RelationshipControllers\AssociationUserController;
 use App\Http\Controllers\api\RelationshipControllers\AssociationUsersController;
 use App\Http\Controllers\api\TypeController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\EventUsersController;
 use Illuminate\Http\Request;
 
@@ -22,6 +23,8 @@ use Orion\Facades\Orion;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('sanctum');
+
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->middleware('sanctum');
 
 Route::group(['as' => 'api'], function() {
     Orion::resource('associations', AssociationController::class);
