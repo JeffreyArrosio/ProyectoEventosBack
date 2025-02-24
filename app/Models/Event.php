@@ -22,6 +22,7 @@ class Event extends Model
         'date_end',
         'title',
         'description',
+        'main_image',
         'access_type',
         'main_image',
         'type_id',
@@ -55,6 +56,11 @@ class Event extends Model
     public function associations(): BelongsToMany
     {
         return $this->belongsToMany(Association::class);
+    }
+  
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class);
     }
 
 }

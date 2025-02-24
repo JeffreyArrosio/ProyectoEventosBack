@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('events', function (Blueprint $table) {
+        Schema::create('associations', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('date_start');
-            $table->dateTime('date_end');
-            $table->string('title');
+            $table->string('name');
             $table->text('description');
-            $table->enum('access_type', ["all","anticipated","exclusive"]);
+            $table->integer('max_member')->nullable();
+            $table->integer('telephone')->unique();
+            $table->string('email')->unique();
+            $table->foreignId('user_id');
             $table->foreignId('type_id');
+            $table->string('main_image');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('associations');
     }
 };

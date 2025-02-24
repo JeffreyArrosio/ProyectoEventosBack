@@ -21,7 +21,7 @@ class ImageFactory extends Factory
     public function definition(): array
     {
         return [
-            'url' => fake()->url(),
+            'url' => "https://picsum.photos/id/".$this->faker->randomNumber(3)."/300/300",
             'imageable_id' => fake()->randomDigitNotNull(),
             'imageable_type' => fake()->word(),
         ];

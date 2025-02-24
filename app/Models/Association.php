@@ -26,6 +26,7 @@ class Association extends Model
         'main_image',
         'user_id',
         'type_id',
+        'main_image',
     ];
 
     /**
