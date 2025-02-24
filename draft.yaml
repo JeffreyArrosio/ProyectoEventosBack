@@ -9,7 +9,6 @@ models:
     type_id: id
     relationships:
       belongsToMany: Event,User
-      hasMany: Comment
 
   Event:
     date_start: datetime
@@ -19,7 +18,6 @@ models:
     access_type: enum:all,anticipated,exclusive
     type_id: id
     relationships:
-      hasMany: Comment
       belongsToMany: Association
 
   Comment:

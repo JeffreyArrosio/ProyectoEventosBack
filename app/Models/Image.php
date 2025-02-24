@@ -27,4 +27,9 @@ class Image extends Model
     protected $casts = [
         'id' => 'integer',
     ];
+    
+    public function imageable(){
+        return $this->morphTo();
+    }
+
 }

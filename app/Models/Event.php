@@ -38,9 +38,17 @@ class Event extends Model
         'type_id' => 'integer',
     ];
 
-    public function comments(): HasMany
+    public function comments()
     {
-        return $this->hasMany(Comment::class);
+        return $this->morphMany(Comment::class,'commentable');
+    }
+
+    public function type(){
+        return $this->morphOne(Type::class,'typeable');
+    }
+
+    public function images(){
+        return $this->morphMany(Comment::class,'commentable');
     }
 
     public function associations(): BelongsToMany
@@ -48,8 +56,4 @@ class Event extends Model
         return $this->belongsToMany(Association::class);
     }
 
-    public function type(): BelongsTo
-    {
-        return $this->belongsTo(Type::class);
-    }
 }

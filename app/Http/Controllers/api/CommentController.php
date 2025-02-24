@@ -11,12 +11,15 @@ use Orion\Http\Controllers\Controller;
 use Orion\Concerns\DisableAuthorization;
 use Orion\Concerns\DisablePagination;
 use App\Models\Comment;
+use App\Policies\CommentPolicy;
 
 class CommentController extends Controller
 {
     use DisableAuthorization;
 
     protected $model = Comment::class;
+
+    protected $policy = CommentPolicy::class;
 
     protected $request = CommentRequest::class;
 }

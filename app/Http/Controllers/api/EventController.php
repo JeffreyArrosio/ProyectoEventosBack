@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Requests\EventRequest;
 use App\Models\Event;
+use App\Policies\EventPolicy;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Laravel\Sanctum\HasApiTokens;
@@ -16,6 +17,6 @@ class EventController extends Controller
     use DisableAuthorization;
 
     protected $model = Event::class;
-
+    protected $policy = EventPolicy::class;
     protected $request = EventRequest::class;
 }
