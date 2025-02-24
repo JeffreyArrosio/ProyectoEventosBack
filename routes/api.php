@@ -24,7 +24,11 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('sanctum');
 
-Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->middleware('sanctum');
+Route::post('/logout', function () {
+    Auth::logout();
+    request()->session()->invalidate();
+    request()->session()->regenerateToken();
+    return response()->json(['message' => 'Logout exitoso']);)->middleware('sanctum');
 
 Route::group(['as' => 'api'], function() {
     Orion::resource('associations', AssociationController::class);
