@@ -16,8 +16,8 @@ class AssociationRequest extends Request
             'email' => 'required|email|max:255',
             'user_id' => 'required|exists:users,id',
             'type_id' => 'required|exists:types,id',
+            'main_image' => 'file|image|max:4096',
             'access_type' => 'required|in:all,anticipated,exclusive'
-
         ];
     }
 }

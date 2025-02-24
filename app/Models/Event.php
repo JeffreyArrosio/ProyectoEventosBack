@@ -42,25 +42,26 @@ class Event extends Model
 
     public function comments()
     {
-        return $this->morphMany(Comment::class,'commentable');
+        return $this->morphMany(Comment::class, 'commentable');
     }
 
-    public function type(){
-        return $this->morphOne(Type::class,'typeable');
+    public function type()
+    {
+        return $this->morphOne(Type::class, 'typeable');
     }
 
-    public function images(){
-        return $this->morphMany(Comment::class,'imageable');
+    public function images()
+    {
+        return $this->morphMany(Comment::class, 'imageable');
     }
 
     public function associations(): BelongsToMany
     {
         return $this->belongsToMany(Association::class);
     }
-  
+
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class);
     }
-
 }
