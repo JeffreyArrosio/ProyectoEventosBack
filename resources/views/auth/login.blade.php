@@ -1204,50 +1204,69 @@
     @endif
 </head>
 
-<body class="bg-slate-950">
-    <div class="flex h-screen justify-center items-center">
-        <div class="p-1 rounded-2xl shadow-2xl">
-            <form method="post" action="{{ route('login') }}">
+
+<body>
+    <div class="relative min-h-screen flex items-center justify-center bg-cover bg-center fondo"
+        style="background-image: url('asociaciones.png');">
+        <!-- Capa de oscurecimiento -->
+        <div class="absolute inset-0 bg-black bg-opacity-20 backdrop-blur-sm"></div>
+
+        <!-- Contenedor del formulario -->
+        <div class="relative bg-white bg-opacity-90 p-8 rounded-xl shadow-lg w-full max-w-md">
+            <h2 class="text-2xl font-bold text-center text-gray-700">Iniciar Sesión</h2>
+            <p class="text-center text-gray-500 text-sm mb-6">Accede a la plataforma de asociaciones y eventos</p>
+
+            <form method="post" action="{{ route('login') }}" class="space-y-4">
                 @csrf
-                <div class="flex font_retro pb-10 justify-center">
-                    <div>
-                        <input name="email" type="text" placeholder="username"
-                            class="placeholder:text-xs font_retro focus:placeholder:text-transparent text-white placeholder:text-gray-500 rounded-2xl bg-neutral-900 p-3">
-                    </div>
+
+                <!-- Campo de Email -->
+                <div>
+                    <label class="block text-gray-600 text-sm mb-1">Correo Electrónico</label>
+                    <input name="email" type="email" placeholder="Tu correo electrónico"
+                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
                 </div>
-                <div class="flex font_retro justify-center">
-                    <div>
-                        <input name="password" type="password" placeholder="password"
-                            class="focus:placeholder:text-transparent placeholder:text-xs font_retro text-white placeholder:text-gray-500 rounded-2xl bg-neutral-900 p-3">
-                    </div>
+
+                <!-- Campo de Contraseña -->
+                <div>
+                    <label class="block text-gray-600 text-sm mb-1">Contraseña</label>
+                    <input name="password" type="password" placeholder="Tu contraseña"
+                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
                 </div>
-                <div class="font_retro flex items-center pt-1 ps-3">
-                    <input type="checkbox" name="remember-me">
-                    <span class="text-xs text-white">remember me</span>
+
+                <!-- Recordar sesión -->
+                <div class="flex items-center justify-between text-sm">
+                    <label class="flex items-center">
+                        <input type="checkbox" name="remember-me" class="mr-2">
+                        <span class="text-gray-600">Recuérdame</span>
+                    </label>
+                    <a href="#" class="text-blue-500 hover:underline">¿Olvidaste tu contraseña?</a>
                 </div>
-                <div
-                    class="flex items-center justify-center mt-5 bg-blue-700 active:bg-blue-500 rounded-2xl text-white">
-                    <button class="rounded-2xl p-1">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="cyanc" class="bi bi-google"
-                            viewBox="0 0 16 16">
-                            <path
-                                d="M15.545 6.558a9.4 9.4 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.7 7.7 0 0 1 5.352 2.082l-2.284 2.284A4.35 4.35 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.8 4.8 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.7 3.7 0 0 0 1.599-2.431H8v-3.08z" />
-                        </svg>
-                    </button>
-                    <span>Login with Google</span>
-                </div>
-                <div class="flex justify-center pt-5">
-                    <button type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" fill="white"
-                            class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z" />
-                            <path fill-rule="evenodd"
-                                d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z" />
-                        </svg></button>
-                </div>
+
+                <!-- Botón de Inicio de Sesión -->
+                <button type="submit"
+                    class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 rounded-lg transition">
+                    Iniciar Sesión
+                </button>
+
+                <!-- Opción de Iniciar Sesión con Google -->
+                <div class="text-center text-gray-500 text-sm mt-4">O inicia sesión con</div>
+                <button class="w-full flex items-center justify-center bg-red-600 hover:bg-red-500 text-white py-2 rounded-lg transition">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                        class="bi bi-google mr-2" viewBox="0 0 16 16">
+                        <path
+                            d="M15.545 6.558a9.4 9.4 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.7 7.7 0 0 1 5.352 2.082l-2.284 2.284A4.35 4.35 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.8 4.8 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.7 3.7 0 0 0 1.599-2.431H8v-3.08z" />
+                    </svg>
+                    Iniciar con Google
+                </button>
+
+                <!-- Link a registro -->
+                <p class="text-center text-sm text-gray-600 mt-4">
+                    ¿No tienes cuenta? <a href="{{ route('register') }}" class="text-blue-500 hover:underline">Regístrate</a>
+                </p>
             </form>
         </div>
     </div>
+
 </body>
 
 </html>
