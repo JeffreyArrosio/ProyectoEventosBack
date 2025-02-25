@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class EventCommentController extends RelationController
 {
-    use HasApiTokens, DisableAuthorization;
+    use DisableAuthorization;
 
     protected $model = Event::class;
 

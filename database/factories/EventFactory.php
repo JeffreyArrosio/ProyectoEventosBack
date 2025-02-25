@@ -22,12 +22,12 @@ class EventFactory extends Factory
     public function definition(): array
     {
         return [
-            'date_start' => fake()->dateTime(),
-            'date_end' => fake()->dateTime(),
+            'date_start' => $start = fake()->dateTimeBetween('2025-01-01 00:00:00', '2025-12-31 23:59:59'),
+            'date_end' => fake()->dateTimeBetween($start, '2025-12-31 23:59:59'),
             'title' => fake()->sentence(4),
             'description' => fake()->text(),
-            'main_image' => "https://picsum.photos/id/".$this->faker->randomNumber(3)."/300/300",
-            'access_type' => fake()->randomElement(["all","anticipated","exclusive"]),
+            'main_image' => "https://picsum.photos/id/" . $this->faker->randomNumber(3) . "/300/300",
+            'access_type' => fake()->randomElement(["all", "anticipated", "exclusive"]),
             'type_id' =>  Type::inRandomOrder()->first()->id ?? Type::factory(),
         ];
     }

@@ -11,7 +11,7 @@ use Orion\Concerns\DisableAuthorization;
 
 class AssociationUsersController extends RelationController
 {
-    use HasApiTokens, DisableAuthorization;
+    use DisableAuthorization;
 
     protected $model = Association::class;
 
