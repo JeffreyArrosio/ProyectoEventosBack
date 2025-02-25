@@ -10,7 +10,7 @@ use Orion\Concerns\DisableAuthorization;
 
 class AssociationEventController extends RelationController
 {
-    use HasApiTokens, DisableAuthorization;
+    use DisableAuthorization;
     protected $model = Association::class;
 
     protected $relation = 'events';
