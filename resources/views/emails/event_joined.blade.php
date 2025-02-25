@@ -15,6 +15,6 @@
             <strong>de acceso exclusivo</strong>.
         @endif
     </p>
-    <p>Comienza el {{ $event->date_start }} y termina el {{ $event->end }}</p>
+    <p>Comienza el {{ $event->date_start }} y termina el {{ $event->date_end }}</p>
 </body>
 </html>

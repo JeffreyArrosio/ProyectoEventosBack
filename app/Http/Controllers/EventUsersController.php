@@ -7,12 +7,29 @@ use App\Models\User;
 use App\Mail\EventJoined;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Orion\Concerns\DisableAuthorization;
 
 
 class EventUsersController extends Controller
 {
     use DisableAuthorization;
+
+    public function index(Request $request)
+{
+    $user = Auth::user();
+
+    if ($request->has('user_id')) {
+        $user = User::find($request->user_id);
+        if (!$user) {
+            return response()->json(['error' => 'Usuario no encontrado'], 404);
+        }
+    }
+
+    $events = $user->events()->with('associations')->get();
+
+    return response()->json($events, 200);
+}
     public function store(Request $request){
         $request->validate([
             'user_id' => 'required|exists:users,id',
