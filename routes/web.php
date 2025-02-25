@@ -14,7 +14,7 @@ Route::get('/', function() {
 });
 
 Route::get('/dashboard', function (Request $request) {
-    return redirect('https://proyecto-eventos-front.vercel.app/');
+    return redirect('https://dannyapi.informaticamajada.es/');
 })->middleware('auth');
 
 
