@@ -7,10 +7,12 @@ use App\Models\User;
 use App\Mail\EventJoined;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
+use Orion\Concerns\DisableAuthorization;
 
 
 class EventUsersController extends Controller
 {
+    use DisableAuthorization;
     public function store(Request $request){
         $request->validate([
             'user_id' => 'required|exists:users,id',
