@@ -34,7 +34,6 @@ class AssociationController extends Controller
             $path = $request->file('main_image')->store('associations','public');
             $association->main_image = $path;
         };
-        $association->description = $request->description;
         $association->save();
     }
 }
