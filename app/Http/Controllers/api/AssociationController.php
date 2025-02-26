@@ -35,5 +35,6 @@ class AssociationController extends Controller
             $association->main_image = $path;
         };
         $association->save();
+        return response()->noContent();
     }
 }
