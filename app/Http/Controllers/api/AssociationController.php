@@ -20,4 +20,20 @@ class AssociationController extends Controller
     protected $policy = AssociationPolicy::class;
     protected $request = AssociationRequest::class;
 
+    // public function store($request){
+
+    //     $association = new Association();
+    //     $association->name = $request->name;
+    //     $association->description = $request->description;
+    //     if($request->max_member)$association->max_member = $request->max_member;
+    //     $association->telephone = $request->telephone;
+    //     $association->email = $request->email;
+    //     $association->user_id = $request->user_id;
+    //     $association->type_id = $request->type_id;
+    //     if($request->hasFile('main_image')){
+    //         $path = $request->file('main_image')->store('associations','public');
+    //         $association->main_image = $path;
+    //     };
+    //     $association->save();
+    // }
 }
