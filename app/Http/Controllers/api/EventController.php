@@ -14,7 +14,6 @@ use Orion\Concerns\DisableAuthorization;
 use Orion\Concerns\DisablePagination;
 class EventController extends Controller
 {
-    use DisableAuthorization;
 
     protected $model = Event::class;
     protected $policy = EventPolicy::class;
