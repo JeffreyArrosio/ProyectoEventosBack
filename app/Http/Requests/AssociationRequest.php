@@ -17,7 +17,6 @@ class AssociationRequest extends Request
             'user_id' => 'required|exists:users,id',
             'type_id' => 'required|exists:types,id',
             'main_image' => 'nullable|file|image|max:4096',
-            'access_type' => 'required|in:all,anticipated,exclusive'
         ];
     }
 }
