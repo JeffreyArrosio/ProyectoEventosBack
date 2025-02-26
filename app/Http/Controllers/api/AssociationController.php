@@ -24,7 +24,7 @@ class AssociationController extends Controller
     public function store($request){
 
         $validatedData = $request->validated();
-
+        dd($validatedData);
         $association = new Association();
         $association->name = $validatedData['name'];
         $association->description = $validatedData['description'];
