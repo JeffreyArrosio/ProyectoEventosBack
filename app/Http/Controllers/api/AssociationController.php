@@ -16,7 +16,7 @@ use Orion\Concerns\DisablePagination;
 
 class AssociationController extends Controller
 {
-    use DisablePagination;
+    use DisablePagination, DisableAuthorization;
     protected $model = Association::class;
     protected $policy = AssociationPolicy::class;
     protected $request = AssociationRequest::class;
