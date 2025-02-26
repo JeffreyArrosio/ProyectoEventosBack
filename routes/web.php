@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoogleController;
 use Illuminate\Support\Facades\Auth;
 
-Route::middleware('auth:sanctum')->get('/auth/user', function (Request $request) {
+Route::middleware('sanctum')->get('/auth/user', function (Request $request) {
     return response()->json($request->user());
 });
 
