@@ -17,7 +17,7 @@ return [
 
     'paths' => ['api/*', 'sanctum/csrf-cookie', 'auth/*', 'login', 'logout'],
 
-    'allowed_methods' => ['*'],
+    'allowed_methods' => ['GET','POST', 'PUT', 'PATCH', 'DELETE'],
 
     'allowed_origins' => [env('FRONTEND_URL'), 'https://dannyapi.informaticamajada.es', 'http://localhost:5173', 'http://localhost:5174', 'http://localhost:5175'],
 

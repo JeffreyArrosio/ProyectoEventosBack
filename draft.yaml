@@ -7,7 +7,7 @@ models:
     email: string unique
     user_id: id
     type_id: id
-    main_image: string
+    main_image: string nullable
     relationships:
       belongsToMany: Event,User
 
@@ -16,7 +16,7 @@ models:
     date_end: datetime
     title: string
     description: text
-    main_image: string
+    main_image: string nullable
     access_type: enum:all,anticipated,exclusive
     type_id: id
     relationships:
