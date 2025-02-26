@@ -23,20 +23,21 @@ class AssociationController extends Controller
 
     public function store($request){
 
-        $validate = $request->validated();
+        $validatedData = $request->validated();
 
         $association = new Association();
-        $association->name = $validate->name;
-        $association->description = $validate->description;
-        if($validate->max_member)$association->max_member = $validate->max_member;
-        $association->telephone = $validate->telephone;
-        $association->email = $validate->email;
-        $association->user_id = $validate->user_id;
-        $association->type_id = $validate->type_id;
-        if($validate->hasFile('main_image')){
-            $path = $validate->file('main_image')->store('associations','public');
+        $association->name = $validatedData['name'];
+        $association->description = $validatedData['description'];
+        $association->max_member = $validatedData['max_member'] ?? null;
+        $association->telephone = $validatedData['telephone'];
+        $association->email = $validatedData['email'];
+        $association->user_id = $validatedData['user_id'];
+        $association->type_id = $validatedData['type_id'];
+
+        if ($request->hasFile('main_image')) {
+            $path = $request->file('main_image')->store('associations', 'public');
             $association->main_image = $path;
-        };
+        }
         $association->save();
         return response()->noContent();
     }
