@@ -22,7 +22,7 @@ use Orion\Facades\Orion;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
-})->middleware('sanctum');
+})->middleware('auth:sanctum');
 
 Route::group(['as' => 'api'], function() {
     Orion::resource('associations', AssociationController::class);
@@ -44,7 +44,7 @@ Route::group(['as' => 'api'], function() {
     Orion::hasManyResource('event', 'associations', EventAssociationController::class);
     
 
-})->middleware('sanctum');
+})->middleware('auth:sanctum');
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
