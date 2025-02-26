@@ -20,7 +20,7 @@ class AssociationController extends Controller
     protected $policy = AssociationPolicy::class;
     protected $request = AssociationRequest::class;
 
-    public function store($request){
+    public function store(Request $request){
 
         $association = new Association();
         $association->name = $request->name;
