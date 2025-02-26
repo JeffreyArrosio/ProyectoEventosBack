@@ -20,20 +20,20 @@ class EventController extends Controller
     protected $policy = EventPolicy::class;
     protected $request = EventRequest::class;
 
-    public function store($request){
+    // public function store($request){
 
-        $event = new Event();
-        $event->title = $request->title;
-        $event->description = $request->description;
-        $event->user_id = $request->user_id;
-        $event->type_id = $request->type_id;
-        $event->date_start = $request->date_start;
-        $event->date_end = $request->date_end;
-        $event->access_type = $request->access_type;
-        if($request->hasFile('main_image')){
-            $path = $request->file('main_image')->store('associations','public');
-            $event->main_image = $path;
-        };
-        $event->save();
-    }
+    //     $event = new Event();
+    //     $event->title = $request->title;
+    //     $event->description = $request->description;
+    //     $event->user_id = $request->user_id;
+    //     $event->type_id = $request->type_id;
+    //     $event->date_start = $request->date_start;
+    //     $event->date_end = $request->date_end;
+    //     $event->access_type = $request->access_type;
+    //     if($request->hasFile('main_image')){
+    //         $path = $request->file('main_image')->store('associations','public');
+    //         $event->main_image = $path;
+    //     };
+    //     $event->save();
+    // }
 }

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->foreignId('user_id');
             $table->foreignId('type_id');
-            $table->string('main_image');
+            $table->string('main_image')->nullable();
             $table->timestamps();
         });
     }
