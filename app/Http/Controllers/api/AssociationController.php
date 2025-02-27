@@ -31,7 +31,7 @@ class AssociationController extends Controller
             'email' => 'required|unique|email|max:255',
             'user_id' => 'required|exists:users,id',
             'type_id' => 'required|exists:types,id',
-            'main_image' => 'nullable|file|image|max:4096',
+            'main_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:4096',
         ]);
         $association = new Association();
         $association->name = $request['name'];
