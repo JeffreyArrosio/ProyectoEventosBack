@@ -21,5 +21,5 @@ class CommentController extends Controller
 
     protected $policy = CommentPolicy::class;
 
-    // protected $request = CommentRequest::class;
+    protected $request = CommentRequest::class;
 }
