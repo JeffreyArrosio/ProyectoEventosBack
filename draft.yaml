@@ -22,7 +22,6 @@ models:
     relationships:
       belongsToMany: Association,User
 
-
   Comment:
     score: enum:1,2,3,4,5 nullable
     text: text nullable
