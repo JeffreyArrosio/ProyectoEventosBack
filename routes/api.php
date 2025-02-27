@@ -13,6 +13,7 @@ use App\Http\Controllers\api\RelationshipControllers\AssociationUsersController;
 use App\Http\Controllers\api\RelationshipControllers\UserAssociationsController;
 use App\Http\Controllers\api\RelationshipControllers\UserEventsController;
 use App\Http\Controllers\api\TypeController;
+use App\Http\Controllers\api\UserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\EventUsersController;
 use Illuminate\Http\Request;
@@ -32,7 +33,7 @@ Route::group(['as' => 'api'], function() {
     Orion::resource('events', EventController::class);
     Orion::resource('images', ImageController::class);
     Orion::resource('types', TypeController::class);
-
+    Orion::resource('users', UserController::class);
     //relaciones de Association
 
     Orion::belongsToManyResource('association', 'events', AssociationEventController::class);

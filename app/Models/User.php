@@ -63,4 +63,8 @@ class User extends Authenticatable
             ->join('association_event', 'events.id', '=', 'association_event.event_id')
             ->select('events.*');
     }
+
+    public function comments(){
+        return $this->hasMany(Comment::class);
+    }
 }
