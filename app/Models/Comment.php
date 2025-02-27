@@ -19,7 +19,8 @@ class Comment extends Model
         'score',
         'text',
         'user_id',
-        'commentable',
+        'commentable_id',
+        'commentable_type',
     ];
 
     /**
