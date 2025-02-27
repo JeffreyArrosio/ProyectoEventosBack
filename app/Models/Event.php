@@ -55,11 +55,10 @@ class Event extends Model
         return $this->morphMany(Comment::class, 'imageable');
     }
 
-    public function associations(): BelongsToMany
+    public function associations()
     {
-        return $this->belongsToMany(Association::class);
+        return $this->belongsToMany(Association::class, 'association_event');
     }
-
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class);

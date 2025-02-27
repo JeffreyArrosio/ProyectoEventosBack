@@ -40,9 +40,9 @@ class Association extends Model
         'type_id' => 'integer',
     ];
 
-    public function events(): BelongsToMany
+    public function events()
     {
-        return $this->belongsToMany(Event::class);
+        return $this->belongsToMany(Event::class, 'association_event');
     }
 
     public function users(): BelongsToMany
