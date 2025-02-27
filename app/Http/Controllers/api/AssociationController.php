@@ -29,13 +29,13 @@ class AssociationController extends Controller
             'main_image' => 'nullable|file|image|max:4096',
         ]);
         $association = new Association();
-        $association->name = $validatedData['name'];
-        $association->description = $validatedData['description'];
-        $association->max_member = $validatedData['max_member'] ?? null;
-        $association->telephone = $validatedData['telephone'];
-        $association->email = $validatedData['email'];
-        $association->user_id = $validatedData['user_id'];
-        $association->type_id = $validatedData['type_id'];
+        $association->name = $request['name'];
+        $association->description = $request['description'];
+        $association->max_member = $request['max_member'] ?? null;
+        $association->telephone = $request['telephone'];
+        $association->email = $request['email'];
+        $association->user_id = $request['user_id'];
+        $association->type_id = $request['type_id'];
 
         if ($request->hasFile('main_image')) {
             $path = $request->file('main_image')->store('associations', 'public');
