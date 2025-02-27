@@ -51,11 +51,16 @@ class User extends Authenticatable
         return $this->belongsToMany(Association::class);
     }
 
+    public function myAssociations(){
+        return $this->hasMany(Association::class, 'user_id');
+    }
     public function events(){
-        return $this->belongsToMany(Event::class);
+        return $this->belongsToMany(Event::class, 'event_user');
     }
     
     public function myEvents()  {
-        return $this->hasManyThrough(Event::class, Association::class);
+        return $this->hasManyThrough(Event::class, Association::class, 'user_id', 'id', 'id', 'id')
+            ->join('association_event', 'events.id', '=', 'association_event.event_id')
+            ->select('events.*');
     }
 }
