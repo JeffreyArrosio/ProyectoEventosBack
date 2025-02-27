@@ -30,7 +30,6 @@ class AssociationFactory extends Factory
             'email' => fake()->safeEmail(),
             'user_id' => User::inRandomOrder()->first()->id ?? User::factory(),
             'type_id' => Type::inRandomOrder()->first()->id ?? Type::factory(),
-            'main_image' => "https://picsum.photos/id/".$this->faker->randomNumber(3)."/300/300"
         ];
     }
 }

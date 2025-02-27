@@ -26,7 +26,6 @@ class EventFactory extends Factory
             'date_end' => fake()->dateTimeBetween($start, '2025-12-31 23:59:59'),
             'title' => fake()->sentence(4),
             'description' => fake()->text(),
-            'main_image' => "https://picsum.photos/id/" . $this->faker->randomNumber(3) . "/300/300",
             'access_type' => fake()->randomElement(["all", "anticipated", "exclusive"]),
             'type_id' =>  Type::inRandomOrder()->first()->id ?? Type::factory(),
         ];

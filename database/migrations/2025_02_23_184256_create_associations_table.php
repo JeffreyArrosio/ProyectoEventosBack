@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->integer('max_member')->nullable();
-            $table->integer('telephone')->unique();
-            $table->string('email')->unique();
+            $table->integer('telephone');
+            $table->string('email');
             $table->foreignId('user_id');
             $table->foreignId('type_id');
             $table->string('main_image')->nullable();
