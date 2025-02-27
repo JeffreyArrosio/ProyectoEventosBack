@@ -33,7 +33,6 @@ class AssociationController extends Controller
             'type_id' => 'required|exists:types,id',
             'main_image' => 'nullable|file|image|max:4096',
         ]);
-        dd($validatedData);
         $association = new Association();
         $association->name = $validatedData['name'];
         $association->description = $validatedData['description'];
