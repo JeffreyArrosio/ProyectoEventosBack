@@ -10,6 +10,8 @@ use App\Http\Controllers\api\RelationshipControllers\AssociationCommentControlle
 use App\Http\Controllers\api\RelationshipControllers\AssociationTypeController;
 use App\Http\Controllers\api\RelationshipControllers\AssociationUserController;
 use App\Http\Controllers\api\RelationshipControllers\AssociationUsersController;
+use App\Http\Controllers\api\RelationshipControllers\UserAssociationsController;
+use App\Http\Controllers\api\RelationshipControllers\UserEventsController;
 use App\Http\Controllers\api\TypeController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\EventUsersController;
@@ -43,6 +45,9 @@ Route::group(['as' => 'api'], function() {
     //relaciones de Event
     Orion::hasManyResource('event', 'associations', EventAssociationController::class);
     
+
+    Orion::hasManyResource('user','associations', UserAssociationsController::class);
+    Orion::belongsToManyResource('user','events', UserEventsController::class);
 
 })->middleware('auth:sanctum');
 
