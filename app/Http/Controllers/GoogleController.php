@@ -35,7 +35,7 @@ class GoogleController extends Controller
             if ($finduser) {
 
                 Auth::login($finduser);
-                return redirect()->to("dannyapi.informaticamajada.es");
+                return redirect()->to("https://dannyapi.informaticamajada.es");
 
             } else {
                 $newUser = User::updateOrCreate(['email' => $user->email], [
@@ -46,7 +46,7 @@ class GoogleController extends Controller
 
                 Auth::login($newUser);
 
-                return redirect()->to("dannyapi.informaticamajada.es");
+                return redirect()->to("https://dannyapi.informaticamajada.es");
             }
         } catch (Exception $e) {
             dd($e->getMessage());
