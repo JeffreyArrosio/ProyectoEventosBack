@@ -12,8 +12,8 @@ class CommentRequest extends Request
             'score' => 'nullable|in:1,2,3,4,5',
             'text' => 'nullable|string',
             'user_id' => 'required|exists:users,id',
+            'commentable_type' => 'required|in:App\Models\Event,App\Models\Association',
             'commentable_id' => 'required|integer',
-            'commentable_type' => 'required|string|max:255',
         ];
     }
 }
