@@ -10,6 +10,7 @@ use App\Http\Controllers\api\RelationshipControllers\AssociationCommentControlle
 use App\Http\Controllers\api\RelationshipControllers\AssociationTypeController;
 use App\Http\Controllers\api\RelationshipControllers\AssociationUserController;
 use App\Http\Controllers\api\RelationshipControllers\AssociationUsersController;
+use App\Http\Controllers\api\RelationshipControllers\EventCommentController;
 use App\Http\Controllers\api\RelationshipControllers\UserAssociationsController;
 use App\Http\Controllers\api\RelationshipControllers\UserEventsController;
 use App\Http\Controllers\api\TypeController;
@@ -39,13 +40,13 @@ Route::group(['as' => 'api'], function() {
     Orion::belongsToManyResource('association', 'events', AssociationEventController::class);
     Orion::belongsToManyResource('association', 'users', AssociationUsersController::class);
     Orion::belongsToResource('association', 'user', AssociationUserController::class);
-    Orion::hasManyResource('association', 'Comments', AssociationCommentController::class);
+    Orion::hasManyResource('association', 'comments', AssociationCommentController::class);
     Orion::belongsToResource('association', 'type', AssociationTypeController::class);
 
 
     //relaciones de Event
-    Orion::hasManyResource('event', 'associations', EventAssociationController::class);
-    
+    Orion::belongsToManyResource('event', 'associations', EventAssociationController::class);
+    Orion::morphManyResource('event','comments', EventCommentController::class);
 
     Orion::hasManyResource('user','associations', UserAssociationsController::class);
     Orion::belongsToManyResource('user','events', UserEventsController::class);
